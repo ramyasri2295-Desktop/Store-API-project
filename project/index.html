@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<style>
+    /* mobile */
+
+    @media(max-width:426px) {
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        #content {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        #content li a {
+            text-decoration: none;
+            color: gray;
+            font-weight: lighter;
+
+        }
+
+        #header div {
+            display: flex;
+            gap: 5px;
+            border-radius: 10px;
+        }
+         #element h1{
+            text-align: center;
+            font-weight:lighter ;
+            color: gray;
+        }
+    }
+
+    /* tablet */
+
+    @media (min-width:427px) and (max-width:768px) {
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        #content {
+            list-style: none;
+            display: flex;
+            gap: 5px;
+        }
+
+        #content li a {
+            text-decoration: none;
+            color: gray;
+            font-weight: lighter;
+        }
+
+        #header div {
+            display: flex;
+            gap: 5px;
+            border-radius: 10px;
+        }
+         #element h1{
+            text-align: center;
+            font-weight:lighter ;
+            color: gray;
+        }
+    }
+
+    /* small laptop */
+    @media (min-width:769px) and (max-width:1024px) {
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        #content {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        #content li a {
+            text-decoration: none;
+            color: gray;
+            font-weight: lighter;
+        }
+
+        #header div {
+            display: flex;
+            gap: 5px;
+            border-radius: 10px;
+        }
+         #element h1{
+            text-align: center;
+            font-weight:lighter ;
+            color: gray;
+        }
+    }
+
+    /* laptop*/
+
+    @media (min-width:1025px) and (max-width:1440px) {
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        #content {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        #content li a {
+            text-decoration: none;
+            color: gray;
+            font-weight: lighter;
+        }
+
+        #header div {
+            display: flex;
+            gap: 5px;
+            border-radius: 10px;
+        }
+        #element h1{
+            text-align: center;
+            font-weight:lighter ;
+            color: gray;
+        }
+         #element div button{
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            padding: 10px 20px;
+            margin: 10px;
+            gap: 15px;
+        }
+    }
+
+    /* large laptops */
+
+    @media(min-width:1441px) and (max-width:2560px) {
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        #content {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        #content li a {
+            text-decoration: none;
+            color: gray;
+            font-weight: lighter;
+        }
+
+        #header div {
+            display: flex;
+            gap: 5px;
+            border-radius: 10px;
+        }
+         #element h1{
+            text-align: center;
+            font-weight:lighter ;
+            color: gray;
+        }
+        #element div button{
+            text-align: center;
+            gap: 15px;
+            align-content: center;
+            align-items: center;
+        }
+    }
+</style>
+
+<body>
+
+    <!-- header section -->
+    <section id="header">
+        <div>
+            <h1>Ecommerce</h1>
+        </div>
+        <ul id="content">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div>
+            <button><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
+            <button><i class="fas fa-user-plus"></i> Register</button>
+            <button><i class="fas fa-shopping-cart"></i> Cart</button>
+        </div>
+    </section>
+
+    <!--banner section -->
+
+    <section>
+    </section>
+
+    <!-- products section -->
+
+    <section id="element">
+        <h1>Latest Products</h1> <hr>
+
+        <div>
+            <button>All</button>
+            <button>Men's Clothing</button>
+            <button>Women's Clothing</button>
+            <button>Jewelery</button>
+            <button>Electronics</button>
+        </div>
+
+    </section>
+
+
+
+    <script src="./pro.js"></script>
+
+</body>
+
+</html>
+
+
