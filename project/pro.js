@@ -17,20 +17,20 @@
 /***********************
  CART LOGIC
 ************************/
-function getCart() {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-}
+// function getCart() {
+//     return JSON.parse(localStorage.getItem("cart")) || [];
+// }
 
-function updateCartCount() {
-    const cart = getCart();
-    const countEl = document.getElementById("cart-count");
-    if (countEl) {
-        countEl.textContent = cart.length;
-    }
-}
+// function updateCartCount() {
+//     const cart = getCart();
+//     const countEl = document.getElementById("cart-count");
+//     if (countEl) {
+//         countEl.textContent = cart.length;
+//     }
+// }
 
 // Run on every page load
-document.addEventListener("DOMContentLoaded", updateCartCount);
+// document.addEventListener("DOMContentLoaded", updateCartCount);
 
 
 /***********************
@@ -82,36 +82,36 @@ function displayProducts(products) {
 }
 
 // Filter products
-function filterProducts(category) {
-    if (category === "all") {
-        displayProducts(allProducts);
-    } else {
-        const filtered = allProducts.filter(
-            p => p.category === category
-        );
-        displayProducts(filtered);
-    }
-}
+// function filterProducts(category) {
+//     if (category === "all") {
+//         displayProducts(allProducts);
+//     } else {
+//         const filtered = allProducts.filter(
+//             p => p.category === category
+//         );
+//         displayProducts(filtered);
+//     }
+// }
 
 // Add to cart
-function addToCart(id) {
-    const cart = getCart();
-    const product = allProducts.find(p => p.id === id);
-    if (!product) return;
+// function addToCart(id) {
+//     const cart = getCart();
+//     const product = allProducts.find(p => p.id === id);
+//     if (!product) return;
 
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
+//     cart.push(product);
+//     localStorage.setItem("cart", JSON.stringify(cart));
 
-    updateCartCount();
-    // alert("Product added to cart ✅");
-}
+//     updateCartCount();
+//     // alert("Product added to cart ✅");
+// }
 
 // Details
-function showDetails(id) {
-    const p = allProducts.find(p => p.id === id);
-    if (!p) return;
+// function showDetails(id) {
+//     const p = allProducts.find(p => p.id === id);
+//     if (!p) return;
 
-    // alert(
-    //     `${p.title}\n\nPrice: $${p.price}\n\n${p.description}`
-    // );
-}
+//     // alert(
+//     //     `${p.title}\n\nPrice: $${p.price}\n\n${p.description}`
+//     // );
+// }

@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-   <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    
-    <!-- header section -->
+
+
+      <!-- header section -->
     <section id="header">
         <div>
             <h1>Ecommerce</h1>
         </div>
         <ul id="content">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Products</a></li>
-           <li><a href="about.html">About</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./products.html">Products</a></li>
+            <li><a href="./about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div>
-            <button><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
-            <button><i class="fas fa-user-plus"></i> Register</button>
-            <button><i class="fas fa-shopping-cart"></i> Cart</button>
+          <div class="headbut">
+            <a href="login.html" class="btn">
+              <button>  <i class="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
+            </a>
+
+            <a href="register.html" class="btn">
+               <button><i class="fas fa-user-plus"></i> Register</button>
+            </a>
+
+            <a href="cart.html" class="btn">
+              <button><i class="fas fa-shopping-cart"></i> Cart</button>
+            </a>
         </div>
     </section>
 
+
+  
+
     <!-- Contact Section -->
-    <section class="contact-section">   
-        <h1>Contact Us</h1>
-        <hr>
+    <section class="contact-section">
+        <h1>Contact Us</h1> <hr>
+       
 
         <form class="contact-form">
             <label for="name">Name</label>
@@ -42,15 +56,16 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" required placeholder="Enter your message"></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Send</button>
         </form>
     </section>
 
-    
+
     <!-- Footer -->
-     <footer>
+    <footer class="foot">
         Made with ❤️ by Ramya
-     </footer>
-    
+    </footer>
+
 </body>
-</html>
+
+</html>  
