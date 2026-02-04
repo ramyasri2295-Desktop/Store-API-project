@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="./style.css">
+   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
+    
     <!-- header section -->
     <section id="header">
         <div>
@@ -28,49 +27,30 @@
         </div>
     </section>
 
-    <!--banner section -->
+    <!-- Contact Section -->
+    <section class="contact-section">   
+        <h1>Contact Us</h1>
+        <hr>
 
-    <section>
-        <div class="banner">
-            <h1>New Season Arrivals</h1>
-            <p>This is wider card with supporting text below as a natural lead-in to additional content.This content is alitter bit longer</p>
-        </div>
+        <form class="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="name@example.com">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Enter your message"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
     </section>
 
-    <!-- products section -->
-
-    <section id="ele">
-        <h1>Latest Products</h1> <hr>
-
-        <div class="but"> 
-            <button>All</button>
-            <button>Men's Clothing</button>
-            <button>Women's Clothing</button>
-            <button>Jewelery</button>
-            <button>Electronics</button>
-        </div>
-<div>
-        <div id="product-container" class="product-container">
-            <!-- product cards will be dynamically added here -->
-        </div>
-</div>
-
-
-    </section>
-    <!-- <section id="element"> </section> -->
-
-
+    
     <!-- Footer -->
      <footer>
         Made with ❤️ by Ramya
      </footer>
-
-
-
-    <script src="./pro.js"></script>
-
+    
 </body>
-
 </html>
-
-

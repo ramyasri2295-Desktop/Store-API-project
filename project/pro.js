@@ -1,71 +1,117 @@
-let products=[
-    {
-        img:"../assest/assests/0.1.jpg",
-        name:"Fjallraven",
-        description:"Your perfect pack for everyday use and walks in the forest.Stash your laptop (up to 15 in...",
-        price:109.95
-    },
-    {
-        img:"../assest/assests/0.2.jpg",
-        name:"Mens Casual...",
-        description:"Slim fit style, contrast raglan long sleeve, three-button henley placket, light weight...",
-        price:22.3
-    },
-    {
-        img:"../assest/assests/0.3.jpg",
-        name:"Mens Cotton...",
-        description:"Great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as...",
-        price:55.99
-    },
-    {
-        img:"../assest/assests/1.jpg",
-        name:"Mens Casual...",
-        description: "The color could be slightly different between on the screen and in practice./Please note...",
-        price:15.99
-    },
-    {
-        img:"../assest/assests/2.jpg",
-        name:"John Hardy W...",
-        description:"From our Legends Collection, the Naga was inspired by the mythical water dragon that prote...",
-        price:695
-    },
-    {
-        img:"../assest/assests/3.jpg",
-        name:"Solid Gold p...",
-        description:"Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by...",
-        price:168
-    },
-    {
-        img:"../assest/assests/4.jpg",
-        name:"White Gold P...",
-        description:"Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her.Gifts to spoil...",
-        price:9.99
-    },
-    {
-        img:"../assest/assests/5.jpg",
-        name:"Pierced Owl...",
-        description:"Rose Gold Plated Double Flared Tunnel Plug Earrings.Made of 316L Stainless Steel...",
-        price:10.99
-    },
-    {
-        img:"../assest/assests/6.jpg",
-        name:"W 2TB Eleme...",
-        description:"USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity...",
-        price:64
+/***********************
+ NAVIGATION
+************************/
+// function goLogin() {
+//     window.location.href = "login.html";
+// }
+
+// function goRegister() {
+//     window.location.href = "register.html";
+// }
+
+// function goCart() {
+//     window.location.href = "cart.html";
+// }
+
+
+/***********************
+ CART LOGIC
+************************/
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function updateCartCount() {
+    const cart = getCart();
+    const countEl = document.getElementById("cart-count");
+    if (countEl) {
+        countEl.textContent = cart.length;
     }
+}
 
-]
+// Run on every page load
+document.addEventListener("DOMContentLoaded", updateCartCount);
 
 
-let cart=document.getElementById("element");
-for(i=0;i<products.length;i++){
-    let product=products[i];
-    cart.innerHTML +=`
-    <div class="cards">
-            <img src="${product.img}" alt="image">
-            <p>${product.name}</p>
-            <p>${product.description}</p>
-            <p>$${product.price}</p>
-    </div>
-    `;
+/***********************
+ PRODUCTS LOGIC
+************************/
+const container = document.getElementById("product-container");
+let allProducts = [];
+
+if (container) {
+    fetch("https://fakestoreapi.com/products")
+        .then(res => res.json())
+        .then(data => {
+            allProducts = data;
+            displayProducts(allProducts);
+            updateCartCount();
+        })
+        .catch(err => console.error("API Error:", err));
+}
+
+// Display products
+function displayProducts(products) {
+    container.innerHTML = "";
+
+    products.forEach(product => {
+        const shortTitle =
+            product.title.length > 20
+                ? product.title.substring(0, 20) + "..."
+                : product.title;
+
+        const shortDesc =
+            product.description.length > 60
+                ? product.description.substring(0, 60) + "..."
+                : product.description;
+
+        container.innerHTML += `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.title}">
+                <h4>${shortTitle}</h4>
+                <p class="desc">${shortDesc}</p>
+                <div class="price">$${product.price.toFixed(2)}</div>
+
+                <div class="card-buttons">
+                    <button onclick="showDetails(${product.id})">Details</button>
+                    <button onclick="addToCart(${product.id})">Add to Cart</button>
+                </div>
+            </div>
+        `;
+    });
+}
+
+// Filter products
+function filterProducts(category) {
+    if (category === "all") {
+        displayProducts(allProducts);
+    } else {
+        const filtered = allProducts.filter(
+            p => p.category === category
+        );
+        displayProducts(filtered);
+    }
+}
+
+// Add to cart
+function addToCart(id) {
+    const cart = getCart();
+    const product = allProducts.find(p => p.id === id);
+    if (!product) return;
+
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
+    // alert("Product added to cart ✅");
+}
+
+// Details
+function showDetails(id) {
+    const p = allProducts.find(p => p.id === id);
+    if (!p) return;
+
+    // alert(
+    //     `${p.title}\n\nPrice: $${p.price}\n\n${p.description}`
+    // );
 }
