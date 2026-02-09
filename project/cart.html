@@ -7,12 +7,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body>
+
+
 
     <!-- header section -->
     <section id="header">
@@ -45,48 +44,58 @@
 
     </section>
 
-    <!--banner section -->
-    <div class="banner">
-        <img src="../assest/assests/main.png (1).jpg" alt="Banner">
-        <div class="banner-text">
-            <h1>New Season Arrivals</h1>
-            <p>Thise is wider card with supporting text below as a natural lead-in to additional content.Thise
-                content is alitter bit longer.</p>
-        </div>
-    </div>
 
-    <!-- products section -->
+    <!-- cart section -->
 
-    <section id="ele">
-        <h1>Latest Products</h1>
+
+    <section class="cart-section">
+        <h1>Cart</h1>
         <hr>
-        <div class="but">
-            <button class="but1" data-category="all">All</button>
-            <button class="but1" data-category="men's clothing">Men's Clothing</button>
-            <button class="but1" data-category="women's clothing">Women's Clothing</button>
-            <button class="but1" data-category="jewelery">Jewelery</button>
-            <button class="but1" data-category="electronics">Electronics</button>
-        </div>
 
-        <div>
-            <div id="product-container" class="product-container">
-                <!-- product cards will be dynamically added here -->
+        <div class="cart-wrapper">
+
+            <!-- Left Side -->
+            <div class="cart-left">
+                <div id="cart-container"></div>
+
+                <!-- Empty Cart Message -->
+                <div id="empty-cart" class="empty-cart">
+                    <h2>Your Cart is Empty</h2>
+                   <a href="index.html">
+                        <button class="continue-btn">
+                            <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+                        </button>
+                    </a>
+                </div>
+
             </div>
+
+           
+            <!-- Right Side -->
+            <div class="cart-right" id="order-summary">
+                <h3>Order Summary</h3>
+                <p>Products (<span id="item-count">0</span>)
+                    <span id="subtotal">$0</span>
+                </p>
+                <p>Shipping <span>$30</span></p>
+                <h4>Total amount <span id="total">$0</span></h4>
+                <button class="checkout-btn">Go to checkout</button>
+            </div>
+
+
         </div>
-
-
     </section>
 
 
 
     <!-- Footer -->
     <footer class="foot">
-        Made with ❤️ by <u>Ramya</u>
+        Made with ❤️ by Ramya
     </footer>
 
-
-
     <script src="./pro.js"></script>
+
+
 
 </body>
 

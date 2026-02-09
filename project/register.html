@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
 
 
-    <!-- header section -->
+     <!-- header section -->
     <section id="header">
         <div>
             <h1>Ecommerce</h1>
@@ -32,7 +30,7 @@
                <button><i class="fas fa-user-plus"></i> Register</button>
             </a>
 
-            <a href="cart.html" class="btn">
+           <a href="cart.html" class="btn">
                 <button>
                     <i class="fas fa-shopping-cart"></i>
                     Cart (<span id="cart-count">0</span>)
@@ -40,31 +38,29 @@
             </a>
         </div>
 
-
-
-           <script src="./pro.js"></script>
-
     </section>
 
 
 
-    <!-- Login Section -->
-        <section class="login-section">
-        <h1>Login</h1> <hr>
+    <!-- register Section -->
+        <section class="register-section">
+        <h1>Register</h1> <hr>
        
 
-        <form class="login-form">
-            <label for="email">Email</label>
+        <form class="register-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+            <label for="email">Email Adress</label>
             <input type="email" id="email" name="email" required placeholder="name@example.com">
 
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required placeholder="Enter your password">
-            <p>New Here? <a href="register.html">Register</a></p>
+            <p>Already have an account? <a href="login.html">Login</a></p>
 
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
         </form>
     </section>
-
 
 
      <!-- Footer -->
@@ -72,6 +68,9 @@
         Made with ❤️ by <u>Ramya</u>
     </footer>
 
-</body>
 
+       <script src="./pro.js"></script>
+
+    
+</body>
 </html>
