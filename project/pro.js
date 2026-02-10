@@ -6,7 +6,7 @@ fetch("https://fakestoreapi.com/products")
     .then(res => res.json())
     .then(data => {
         allProducts = data;
-        displayProducts(allProducts); // show all by default
+        displayProducts(allProducts);
     })
     .catch(err => console.log(err));
 
@@ -21,7 +21,7 @@ function displayProducts(products) {
                 ? product.title.substring(0, 20) + "..."
                 : product.title;
 
-    
+
 
         container.innerHTML += `
             <div class="product-card">
@@ -41,13 +41,6 @@ function displayProducts(products) {
 }
 
 
-
-
-
-
-
-
-
 // Select all filter buttons
 const buttons = document.querySelectorAll(".but1");
 
@@ -58,7 +51,7 @@ buttons.forEach(button => {
         if (category === "all") {
             displayProducts(allProducts);
         } else {
-            const filteredProducts = allProducts.filter(product => 
+            const filteredProducts = allProducts.filter(product =>
                 product.category === category
             );
             displayProducts(filteredProducts);
@@ -83,7 +76,6 @@ function checkEmptyCart() {
         cartContainer.style.display = "none";
         orderSummary.style.display = "none";
 
-        // Center layout
         wrapper.classList.add("empty-mode");
     } else {
         emptyCart.style.display = "none";
@@ -110,7 +102,7 @@ function addToCart(id) {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    updateCartCount();   // header updates only here
+    updateCartCount();
 }
 
 
@@ -119,13 +111,16 @@ function addToCart(id) {
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    const count = cart.length;
-
     const countElement = document.getElementById("cart-count");
     if (countElement) {
-        countElement.innerText = count;
+        countElement.innerText = cart.length;
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    updateCartCount();
+});
+
 
 
 
@@ -163,16 +158,19 @@ function displayCart() {
             </div>
             <hr>
         `;
+        let totalQty = 0;
+        cart.forEach(item => {
+            totalQty += item.quantity;
+        });
+
+        document.getElementById("item-count").innerText = totalQty;
+
     });
-checkEmptyCart();
+    checkEmptyCart();
 
 
 
 
-    let totalQty = 0;
-    cart.forEach(item => {
-        totalQty += item.quantity;
-    });
 
     document.getElementById("item-count").innerText = totalQty;
 
@@ -192,14 +190,15 @@ function changeQty(id, value) {
 
     if (item.quantity <= 0) {
         cart = cart.filter(p => p.id !== id);
-        updateCartCount();
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
+    updateCartCount();
     displayCart();
-    checkEmptyCart();   // ← immediate update when last item removed
 }
+
+
 
 
 
@@ -211,16 +210,15 @@ const cartContainer = document.getElementById("cart-container");
 const orderSummary = document.getElementById("order-summary");
 
 if (cart.length === 0) {
-    // Show empty cart message
+
     emptyCart.style.display = "block";
 
-    // Hide cart items area
     cartContainer.style.display = "none";
 
-    // Hide order summary
     orderSummary.style.display = "none";
+
 } else {
-    // Show cart items
+
     emptyCart.style.display = "none";
     cartContainer.style.display = "block";
     orderSummary.style.display = "block";
@@ -241,14 +239,14 @@ function loadCart() {
     container.innerHTML = "";
 
     if (cart.length === 0) {
-        emptyMsg.style.display = "block";   // show empty message
+        emptyMsg.style.display = "block";
         document.getElementById("item-count").textContent = 0;
         document.getElementById("subtotal").textContent = "$0";
         document.getElementById("total").textContent = "$0";
         return;
     }
 
-    emptyMsg.style.display = "none"; // hide message if items exist
+    emptyMsg.style.display = "none";
 
     let subtotal = 0;
 
@@ -277,7 +275,6 @@ loadCart();
 updateCartCount();
 displayCart();
 checkEmptyCart();
-
 
 
 
